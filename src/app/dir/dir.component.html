@@ -1,0 +1,42 @@
+<p appHighlight>Directives</p>
+
+<input type="number" [(ngModel)]="num"/>
+
+<h3 class="appHighlight">ngIf</h3>
+<div *ngIf="num!=undefined && num%2==0">Even Number</div>
+<div *ngIf="num!=undefined && num%2>0">Odd Number</div>
+
+<h3>ngIf .. else</h3>
+
+<ng-template #tempEven>Even Number</ng-template>
+<ng-template #tempOdd>Odd Number</ng-template>
+
+<div *ngIf="num!=undefined && num%2==0 then tempEven; else tempOdd"></div>
+
+<br>
+<h2>ngFor</h2>
+<ul>
+  <li *ngFor="let item of colors">{{item}}</li>
+</ul>
+
+<select [(ngModel)]="color">
+<option [value]=" '' ">--select--</option>
+
+  <option *ngFor="let item of colors" [value]="item">{{item}}</option>
+</select>
+
+<div [ngStyle]="{color:color}">The Selected Color :{{color}}</div>
+
+<div [ngClass]="{'red-color':color=='red'}"> This is my information </div>
+
+<h2>ngSwitch</h2>
+<input type="text" [(ngModel)]="alphabet">
+<div [ngSwitch]="alphabet">
+  <div *ngSwitchCase="'a'">Vowel</div>
+  <div *ngSwitchCase="'e'">Vowel</div>
+  <div *ngSwitchCase="'i'">Vowel</div>
+  <div *ngSwitchCase="'o'">Vowel</div>
+  <div *ngSwitchCase="'u'">Vowel</div>
+  <div *ngSwitchDefault=>Not a Vowel</div>
+</div>
+
